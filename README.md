@@ -2,21 +2,15 @@
 
 <img width="365" height="758" alt="image" src="https://github.com/user-attachments/assets/9b8d8385-528d-43fc-8e26-d0a0fad1c52a" />
 
-Mô tả tổng thể:
+Mô tả tổng thể Project:
 
-Dự án được xây dựng theo kiến trúc microservices, gồm 4 dịch vụ chính:
+Hệ thống áp dụng mô hình Microservices gồm 4 dịch vụ chính: Auth, Product, Order và API Gateway. 
 
-api-gateway: Cổng giao tiếp trung tâm, định tuyến request đến các service.
+Gateway nhận request từ client và định tuyến đến từng service.
 
-auth: Xử lý xác thực người dùng (login, register, JWT, v.v.)
+Các service giao tiếp nội bộ qua REST và RabbitMQ, lưu dữ liệu trong MongoDB.
 
-product: Quản lý thông tin sản phẩm.
-
-order: Xử lý đơn hàng, kết nối với auth và product.
-
-utils: Chứa các hàm tiện ích dùng chung giữa các service (như middleware isAuthenticated.js).
-
-Dự án có tệp docker-compose.yml, cho phép chạy toàn bộ hệ thống bằng Docker, dễ dàng triển khai và quản lý container cho từng service.
+Hệ thống dùng các mẫu thiết kế như Microservices, MVC, Service Layer, Repository, Middleware và Gateway Pattern để tách biệt chức năng, tăng khả năng mở rộng và bảo trì.
 
 ⚙️ 2. Công nghệ sử dụng
 
@@ -40,11 +34,19 @@ Dự án có tệp docker-compose.yml, cho phép chạy toàn bộ hệ thống 
 
 <img width="380" height="90" alt="image" src="https://github.com/user-attachments/assets/fd9dc43c-921e-4615-b167-aaf6dfb2246c" />
 
-🧩 4. Kiểm tra trạng thái container
+🧩 4. Build Project lên docker test
+
+- Tiến hành gõ lệnh sau vào terminal: docker compose up
+
+- Sau đó project được push lên docker test với các container sau:
+
+<img width="1542" height="506" alt="image" src="https://github.com/user-attachments/assets/f6568d4b-2f2b-47e1-a589-6b8499851c92" />
+
+🧩 5. Kiểm tra trạng thái container
 
 GÕ lệnh : docker compose ps
 
-🧩 5. Test các API bằng Postman
+🧩 6. Test các API bằng Postman
 
 Request: POST http://localhost:3003/auth/register → Đăng ký tài khoản
 
@@ -65,6 +67,18 @@ Request: GET http://localhost:3003/products/api/products → Xác thực Token v
 Request: POST http://localhost:3003/products/api/products/buy → Xác thực Token và tiến hành nhập id sản phẩm để tiến hành đặt hàng
 
 <img width="1324" height="829" alt="image" src="https://github.com/user-attachments/assets/e2e5f21b-ad42-4c10-b58e-940aeece918f" />
+
+🧩7. Thêm endpoint id 
+
+- Trong productController.js
+
+<img width="664" height="383" alt="image" src="https://github.com/user-attachments/assets/f0ea768e-6de0-4020-b5d7-06d37e395df9" />
+
+- Trong productRoutes.js
+
+  <img width="616" height="26" alt="image" src="https://github.com/user-attachments/assets/913d1f00-501e-452d-874d-879dd44136bc" />
+
+- Test endpoint id sau khi thêm mã code vào 2 file trên:
 
 Request: GET http://localhost:3003/products/api/products/.....(id) → Xác thực Token nhấn send để tìm sản phẩm theo id
 
