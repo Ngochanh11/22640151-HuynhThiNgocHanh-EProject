@@ -48,4 +48,25 @@ GÕ lệnh : docker compose ps
 
 Request: POST http://localhost:3003/auth/register → Đăng ký tài khoản
 
+<img width="1264" height="903" alt="image" src="https://github.com/user-attachments/assets/facb3a41-2fce-4b20-91b7-34d8855e4728" />
+
 Request: POST http://localhost:3003/auth/login → Đăng nhập và nhận Token
+
+<img width="1624" height="901" alt="image" src="https://github.com/user-attachments/assets/272253f4-45e1-421b-aae1-ab3028507024" />
+
+Request: POST http://localhost:3003/products/api/products → Xác thực Token và tiến hành nhập thông tin để thêm product
+
+<img width="1175" height="904" alt="image" src="https://github.com/user-attachments/assets/544a51e8-58ce-4ac6-9534-6eba096f6e9e" />
+
+Request: GET http://localhost:3003/products/api/products → Xác thực Token và nhấn send để xem danh sách tất cả product
+
+<img width="1278" height="923" alt="image" src="https://github.com/user-attachments/assets/1fdd2b50-f0a3-471a-a2e0-a6dde5e17a1f" />
+
+Request: POST http://localhost:3003/products/api/products/buy → Xác thực Token và tiến hành nhập id sản phẩm để tiến hành đặt hàng
+
+<img width="1324" height="829" alt="image" src="https://github.com/user-attachments/assets/e2e5f21b-ad42-4c10-b58e-940aeece918f" />
+
+Request: GET http://localhost:3003/products/api/products/.....(id) → Xác thực Token nhấn send để tìm sản phẩm theo id
+
+<img width="1289" height="759" alt="image" src="https://github.com/user-attachments/assets/be20f168-7d96-4e68-8d71-2e3fe684b92a" />
+
